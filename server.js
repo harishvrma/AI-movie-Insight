@@ -1,18 +1,22 @@
 import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
+import dotenv from "dotenv";
+
+
 import { GoogleGenAI } from "@google/genai";
+
+dotenv.config(); // Load .env variables
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const TMDB_API_KEY = "0d93e4005ff94bed2e46368535b7bb0a";
+const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
-// 🔹 Initialize Gemini AI
-// Replace with your working API key
+// Initialize Gemini AI safely
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyDtaI0fQPnOJz4iSWqWoG1EhcyRthZWpwo"
+  apiKey: process.env.GEMINI_API_KEY
 });
 
 app.post("/api/movie-extra", async (req, res) => {
