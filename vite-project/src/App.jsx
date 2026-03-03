@@ -41,7 +41,7 @@ function App() {
       }
 
       // Fetch backend AI data
-      const backendRes = await fetch("http://localhost:8080/api/movie-extra", {
+      const backendRes = await fetch("https://ai-movie-insight.onrender.com/api/movie-extra", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ imdbId: omdbData.imdbID }),
