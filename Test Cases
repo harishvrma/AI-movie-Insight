@@ -1,0 +1,40 @@
+Movie Insight App - Sample Test Cases
+=====================================
+
+1. Test Case: Valid IMDb ID
+--------------------------
+Input:
+  IMDb ID: tt0111161 (The Shawshank Redemption)
+
+Expected Output:
+  - Movie details displayed: Title, Poster, Year, Genre, IMDb Rating, Director, Top Cast
+  - AI Summary is generated (not empty)
+  - Sentiment is Positive, Mixed, or Negative
+  - Cast array contains up to 10 actors
+
+---
+
+2. Test Case: Invalid IMDb ID
+-----------------------------
+Input:
+  IMDb ID: invalid123
+
+Expected Output:
+  - Display message: "No data found"
+  - AI Summary shows: "AI summary unavailable"
+  - Sentiment shows: "Unavailable"
+  - Cast array is empty
+
+---
+
+3. Test Case: Empty IMDb ID
+----------------------------
+Input:
+  IMDb ID: ""
+
+Expected Output:
+  - No request sent to backend
+  - No movie card displayed
+  - Optional: Show a validation message near input: "Please enter a valid IMDb ID"
+
+---
