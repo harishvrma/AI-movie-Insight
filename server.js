@@ -55,9 +55,9 @@ Overall Sentiment: Positive / Mixed / Negative
 ${combinedReviews}
           `
         });
-
+        console.log(combinedReviews)
         summary = response.text;
-
+        console.log(summary)
         // Extract sentiment manually
         if (summary.includes("Positive")) sentiment = "Positive";
         else if (summary.includes("Negative")) sentiment = "Negative";
@@ -67,7 +67,6 @@ ${combinedReviews}
         console.log("Gemini API error:", err.message);
       }
     }
-
     // 3️⃣ Top 10 Cast
     const creditsRes = await fetch(
       `https://api.themoviedb.org/3/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}&language=en-US`
