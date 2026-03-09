@@ -9,7 +9,9 @@ import { GoogleGenAI } from "@google/genai";
 dotenv.config(); // Load .env variables
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:"https://ai-movie-insight.netlify.app/"
+}));
 app.use(express.json());
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
