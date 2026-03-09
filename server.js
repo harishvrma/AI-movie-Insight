@@ -9,9 +9,7 @@ import { GoogleGenAI } from "@google/genai";
 dotenv.config(); // Load .env variables
 
 const app = express();
-app.use(cors({
-  origin:"*"
-}));
+app.use(cors());
 app.use(express.json());
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
