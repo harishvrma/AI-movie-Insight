@@ -10,7 +10,7 @@ dotenv.config(); // Load .env variables
 
 const app = express();
 app.use(cors({
-  origin:"https://ai-movie-insight.netlify.app/"
+  origin:"*"
 }));
 app.use(express.json());
 
