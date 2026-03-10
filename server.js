@@ -23,7 +23,7 @@ app.post("/api/movie-extra", async (req, res) => {
   try {
     const { imdbId } = req.body;
 
-    // 1️⃣ IMDb → TMDB
+    // 1 IMDb → TMDB
     const findRes = await fetch(
       `https://api.themoviedb.org/3/find/${imdbId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`
     );
@@ -31,7 +31,7 @@ app.post("/api/movie-extra", async (req, res) => {
     const tmdbId = findData.movie_results[0]?.id;
     if (!tmdbId) return res.json({ summary: "", sentiment: "", cast: [] });
 
-    // 2️⃣ Get Reviews
+    // 2 Get Reviews
     const reviewRes = await fetch(
       `https://api.themoviedb.org/3/movie/${tmdbId}/reviews?api_key=${TMDB_API_KEY}&language=en-US`
     );
@@ -67,7 +67,7 @@ ${combinedReviews}
         console.log("Gemini API error:", err.message);
       }
     }
-    // 3️⃣ Top 10 Cast
+    // 3 Top 10 Cast
     const creditsRes = await fetch(
       `https://api.themoviedb.org/3/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}&language=en-US`
     );
